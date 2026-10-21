@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Área do aluno | Matemática 40</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/app.css?v=8">
+  <script src="/pw-eye.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a href="/" class="brand">
+        <span class="brand-icon">∑</span>
+        <span class="brand-text">Matemática <strong>40</strong></span>
+      </a>
+      <div class="user-area">
+        <div class="user-chip">
+          <span class="user-avatar" id="userAvatar">·</span>
+          <div class="user-info">
+            <span class="user-label" id="userLabel"></span>
+            <span class="user-name" id="userName"></span>
+          </div>
+        </div>
+        <a href="/conta.html" class="btn-ghost">Minha conta</a>
+        <button type="button" class="btn-logout" data-logout>Sair</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <div id="msg" class="alert hidden"></div>
+
+      <!-- Visão 1: listas atribuídas -->
+      <section id="viewLists">
+        <h1>Minhas listas</h1>
+        <div class="filters">
+          <label>Prova
+            <select id="fExam"><option value="">Todas</option><option value="enem">ENEM</option><option value="ufrgs">UFRGS</option></select>
+          </label>
+          <label>Situação
+            <select id="fStatus"><option value="">Todas</option><option value="pending">Pendentes</option><option value="done">Enviadas</option></select>
+          </label>
+        </div>
+        <div id="grid" class="grid" aria-live="polite"><p class="empty">Carregando...</p></div>
+      </section>
+
+      <!-- Visão 2: resolver ou ver o resultado de uma lista -->
+      <section id="viewList" class="hidden">
+        <a href="#" class="small" id="backLink">← Voltar às listas</a>
+        <div id="listHead"></div>
+        <form id="quiz" novalidate></form>
+      </section>
+    </div>
+  </main>
+
+<script src="/js/api.js"></script>
+<script src="/js/topbar.js"></script>
+<script src="/js/aluno.js?v=10"></script>
+
+
+
+</body>
+</html>

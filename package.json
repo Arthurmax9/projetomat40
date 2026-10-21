@@ -1,0 +1,28 @@
+{
+  "name": "matematica40",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20.6"
+  },
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "db:local": "wrangler d1 migrations apply matematica40 --local",
+    "db:remote": "wrangler d1 migrations apply matematica40 --remote",
+    "start": "node --env-file=.env src/node.js",
+    "create-teacher": "node --env-file=.env scripts/create-teacher.js"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.13.0",
+    "better-sqlite3": "^13.0.3",
+    "hono": "^4.6.0"
+  },
+  "devDependencies": {
+    "wrangler": "^4.151.3"
+  },
+  "allowScripts": {
+    "workerd@1.20261019.1": true,
+    "esbuild@0.28.2": true
+  }
+}

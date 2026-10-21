@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Matemática 40 | ENEM e UFRGS</title>
+  <meta name="description" content="Listas de exercícios, vídeos e materiais de Matemática para ENEM e UFRGS.">
+  <meta name="theme-color" content="#05070f">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/app.css?v=7">
+</head>
+<body id="topo">
+  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a href="/" class="brand">
+        <span class="brand-icon">∑</span>
+        <span class="brand-text">Matemática <strong>40</strong></span>
+      </a>
+
+      <div class="user-area">
+        <!-- Só aparece quando o usuário está logado -->
+        <div class="user-chip hidden" id="userChip">
+          <span class="user-avatar" id="userAvatar">A</span>
+        </div>
+        <a href="/login.html" class="btn-portal" id="navLogin">Acessar o portal</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero__bg" aria-hidden="true">
+        <div class="hero__glow hero__glow--1"></div>
+        <div class="hero__glow hero__glow--2"></div>
+        <svg class="hero__graph" viewBox="0 0 600 300">
+          <polyline points="0,250 60,220 120,180 180,200 240,120 300,150 360,60 420,90 480,30 540,70 600,10" fill="none" stroke="currentColor" stroke-width="3"/>
+          <circle cx="120" cy="180" r="4" fill="currentColor"/>
+          <circle cx="300" cy="150" r="4" fill="currentColor"/>
+          <circle cx="480" cy="30" r="4" fill="currentColor"/>
+        </svg>
+        <span class="hero__formula hero__formula--1">f(x) = ax² + bx + c</span>
+        <span class="hero__formula hero__formula--2">sen²θ + cos²θ = 1</span>
+        <span class="hero__formula hero__formula--3">∫ f(x) dx</span>
+        <span class="hero__formula hero__formula--4">x = (-b ± √Δ) / 2a</span>
+      </div>
+
+      <div class="container hero__inner">
+        <span class="hero-tag">Preparação focada em resultado</span>
+        <h1>Matemática para <span>ENEM</span> e <span class="alt">UFRGS</span></h1>
+        <p>Listas organizadas por tema, vídeos com resolução e materiais em PDF.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#enem">Ver conteúdos</a>
+          <a class="btn btn-ghost" href="/login.html" data-portal-link>Área do aluno</a>
+        </div>
+
+        <div class="hero__stats">
+          <div class="stat"><span class="stat__number">ENEM</span><span class="stat__label">Listas e vídeos</span></div>
+          <div class="stat"><span class="stat__number">UFRGS</span><span class="stat__label">Listas e vídeos</span></div>
+          <div class="stat"><span class="stat__number">100%</span><span class="stat__label">Correção automática</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ENEM -->
+    <section class="section prova" id="enem" data-exam="enem">
+      <div class="container">
+        <div class="section__header">
+          <span class="hero-tag">Prova ENEM</span>
+          <h2>Listas para o ENEM</h2>
+          <p class="muted">Filtre por tema e nível e estude na sequência.</p>
+        </div>
+        <div class="filters">
+          <label>Tema <select data-filter="topic"><option value="">Todos</option></select></label>
+          <label>Nível
+            <select data-filter="level">
+              <option value="">Todos</option>
+              <option value="facil">Fácil</option>
+              <option value="medio">Médio</option>
+              <option value="dificil">Difícil</option>
+            </select>
+          </label>
+          <input type="search" data-filter="q" placeholder="Buscar..." aria-label="Buscar no ENEM">
+        </div>
+        <div class="grid" data-grid aria-live="polite"><p class="empty">Carregando...</p></div>
+      </div>
+    </section>
+
+    <!-- UFRGS -->
+    <section class="section alt prova prova--ufrgs" id="ufrgs" data-exam="ufrgs">
+      <div class="container">
+        <div class="section__header">
+          <span class="hero-tag hero-tag--alt">Prova UFRGS</span>
+          <h2>Listas para a UFRGS</h2>
+          <p class="muted">Filtre por tema e nível e estude na sequência.</p>
+        </div>
+        <div class="filters">
+          <label>Tema <select data-filter="topic"><option value="">Todos</option></select></label>
+          <label>Nível
+            <select data-filter="level">
+              <option value="">Todos</option>
+              <option value="facil">Fácil</option>
+              <option value="medio">Médio</option>
+              <option value="dificil">Difícil</option>
+            </select>
+          </label>
+          <input type="search" data-filter="q" placeholder="Buscar..." aria-label="Buscar na UFRGS">
+        </div>
+        <div class="grid" data-grid aria-live="polite"><p class="empty">Carregando...</p></div>
+      </div>
+    </section>
+
+    <!-- METODOLOGIA -->
+    <section class="section" id="metodologia">
+      <div class="container metodo">
+        <div>
+          <span class="hero-tag">Como funciona</span>
+          <h2>Prática direcionada, sem enrolação</h2>
+          <ul class="steps">
+            <li class="step"><span class="step__number">01</span><div><h3>Escolha a prova</h3><p class="muted">ENEM ou UFRGS, cada uma com material próprio.</p></div></li>
+            <li class="step"><span class="step__number">02</span><div><h3>Filtre por tema e nível</h3><p class="muted">Comece pelo fácil e avance aos poucos.</p></div></li>
+            <li class="step"><span class="step__number">03</span><div><h3>Assista às resoluções</h3><p class="muted">Vídeos explicando as questões passo a passo.</p></div></li>
+          </ul>
+        </div>
+        <div class="metodo__visual" aria-hidden="true">
+          <div class="formula-card">x = (-b ± √(b²-4ac)) / 2a</div>
+          <div class="formula-card formula-card--2">A = π r²</div>
+          <div class="formula-card formula-card--3">P(A) = n(A)/n(Ω)</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section class="section alt" id="sobre">
+      <div class="container narrow">
+        <span class="hero-tag">Sobre</span>
+        <h2>Ensino direto, prático e acessível</h2>
+        <p>O Matemática 40 reúne listas e resoluções em vídeo para quem vai fazer ENEM ou UFRGS. Os alunos cadastrados também recebem listas exclusivas, com correção automática.</p>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-final">
+      <div class="container">
+        <h2>Pronto para praticar com direção?</h2>
+        <p class="muted">Entre na área do aluno e acesse as listas exclusivas.</p>
+        <div class="hero-actions">
+          <a class="btn" href="/login.html" data-portal-link>Área do aluno</a>
+          <a class="btn btn-outline" href="#enem">Ver conteúdos</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span class="logo__symbol">∑</span> © <span id="ano"></span> Matemática 40 · <a href="#topo">Voltar ao topo</a>
+    </div>
+  </footer>
+
+  <script src="/script.js" defer></script>
+  <script src="/home.js" defer></script>
+</body>
+</html>

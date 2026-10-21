@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Painel do professor | Matemática 40</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/app.css?v=8">
+  <script src="/pw-eye.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a href="/" class="brand">
+        <span class="brand-icon">∑</span>
+        <span class="brand-text">Matemática <strong>40</strong></span>
+      </a>
+      <div class="user-area">
+        <div class="user-chip">
+          <span class="user-avatar" id="userAvatar">·</span>
+          <div class="user-info">
+            <span class="user-label" id="userLabel"></span>
+            <span class="user-name" id="userName"></span>
+          </div>
+        </div>
+        <a href="/conta.html" class="btn-ghost">Minha conta</a>
+        <button type="button" class="btn-logout" data-logout>Sair</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <nav class="tabs" aria-label="Seções do painel">
+        <a href="#listas" data-tab="listas">Listas</a>
+        <a href="#alunos" data-tab="alunos">Alunos</a>
+        <a href="#professores" data-tab="professores">Professores</a>
+      </nav>
+      <div id="msg" class="alert hidden"></div>
+
+      <!-- Listas -->
+      <section id="vListas" class="view hidden">
+        <div class="row-between">
+          <h1>Listas</h1>
+          <a class="btn" href="#nova">+ Nova lista</a>
+        </div>
+        <div class="filters">
+          <label>Prova
+            <select id="fExam"><option value="">Todas</option><option value="enem">ENEM</option><option value="ufrgs">UFRGS</option></select>
+          </label>
+          <input type="search" id="fQ" placeholder="Buscar..." aria-label="Buscar listas">
+        </div>
+        <div class="table-wrap"><table class="table" id="listsTable"></table></div>
+      </section>
+
+      <!-- Editor -->
+      <section id="vEditor" class="view hidden">
+        <a href="#listas" class="small">← Voltar às listas</a>
+        <h1 id="edTitle">Nova lista</h1>
+        <form id="listForm" novalidate>
+          <div class="form-grid">
+            <div class="field span-2"><label for="title">Título *</label><input id="title" maxlength="150" required></div>
+            <div class="field"><label for="exam">Prova *</label>
+              <select id="exam"><option value="enem">ENEM</option><option value="ufrgs">UFRGS</option></select></div>
+            <div class="field"><label for="position">Nº da lista *</label><input id="position" type="number" min="1" max="999" value="1"></div>
+            <div class="field"><label for="topic">Tema</label><input id="topic" maxlength="60" list="topics"><datalist id="topics"></datalist></div>
+            <div class="field"><label for="level">Nível</label>
+              <select id="level"><option value="">—</option><option value="facil">Fácil</option><option value="medio">Médio</option><option value="dificil">Difícil</option></select></div>
+            <div class="field span-2"><label for="description">Descrição</label><textarea id="description" rows="3" maxlength="5000"></textarea></div>
+            <div class="field span-2"><label for="video_url">Vídeo da lista (YouTube)</label><input id="video_url" type="url" placeholder="https://www.youtube.com/watch?v=..."></div>
+            <div class="field"><label for="show_answers">Gabarito para o aluno</label>
+              <select id="show_answers"><option value="after_submit">Mostrar após o envio</option><option value="never">Nunca mostrar</option></select></div>
+            <label class="check"><input type="checkbox" id="is_public"> Mostrar na página inicial (só os dados da lista e o PDF)</label>
+          </div>
+
+          <h2>Questões <small id="qCount" class="muted"></small></h2>
+          <div id="qBox"></div>
+          <button type="button" class="btn btn-outline" id="addQ">+ Adicionar questão</button>
+
+          <h2>Alunos</h2>
+          <div class="filters">
+            <input type="search" id="stQ" placeholder="Filtrar alunos..." aria-label="Filtrar alunos">
+            <button type="button" class="btn btn-sm btn-ghost" id="stAll">Marcar todos</button>
+            <button type="button" class="btn btn-sm btn-ghost" id="stNone">Desmarcar todos</button>
+          </div>
+          <div id="stBox" class="checklist"></div>
+
+          <h2>PDF</h2>
+          <div id="pdfBox"></div>
+
+          <div class="submit-bar">
+            <a class="btn btn-ghost" href="#listas">Cancelar</a>
+            <button class="btn" type="submit" id="saveBtn">Salvar lista</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Resultados -->
+      <section id="vResultados" class="view hidden">
+        <a href="#listas" class="small">← Voltar às listas</a>
+        <h1 id="resTitle">Resultados</h1>
+        <p id="resSummary" class="muted"></p>
+        <div class="table-wrap"><table class="table" id="resTable"></table></div>
+      </section>
+
+      <!-- Usuários (alunos e professores) -->
+      <section id="vUsers" class="view hidden">
+        <h1 id="uTitle">Alunos</h1>
+        <div id="pwOut" class="alert ok hidden"></div>
+        <form id="userForm" class="card form-inline" novalidate>
+          <h3 id="uFormTitle">Cadastrar aluno</h3>
+          <div class="form-grid">
+            <div class="field"><label for="uName">Nome</label><input id="uName" maxlength="100" required></div>
+            <div class="field"><label for="uUser">Usuário</label><input id="uUser" maxlength="32" autocapitalize="none" spellcheck="false" placeholder="ex.: joao.silva" required></div>
+            <div class="field"><label for="uMode">Senha</label>
+              <select id="uMode"><option value="auto">Gerar automaticamente</option><option value="manual">Definir manualmente</option></select></div>
+            <div class="field hidden" id="uPwField"><label for="uPw">Senha manual</label><input id="uPw" type="text" autocomplete="off" maxlength="128"></div>
+          </div>
+          <button class="btn" type="submit">Cadastrar</button>
+        </form>
+        <div class="filters"><input type="search" id="uQ" placeholder="Buscar..." aria-label="Buscar usuários"></div>
+        <div class="table-wrap"><table class="table" id="usersTable"></table></div>
+      </section>
+    </div>
+  </main>
+
+ <script src="/js/api.js"></script>
+<script src="/js/topbar.js"></script>
+<script src="/js/professor.js"></script> <!-- ou aluno.js / conta.js -->
+
+</body>
+</html>

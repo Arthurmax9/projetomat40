@@ -1,0 +1,22 @@
+
+{
+  "name": "matematica40",
+  "main": "src/worker.js",
+  "compatibility_date": "2025-09-01",
+  "assets": { "directory": "./public" },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "matematica40",
+      "database_id": "5e82bec6-e864-417b-ada9-85ab6ac762d7",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "kv_namespaces": [
+    { "binding": "FILES_KV", "id": "23ef2622a8b54bb19324d72e759afc82" }
+  ],
+  "vars": {
+    "COOKIE_SECURE": "true",
+    "PBKDF2_ITERATIONS": "100000"
+  }
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Minha conta | Matemática 40</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/app.css?v=8">
+  <script src="/pw-eye.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a href="/" class="brand">
+        <span class="brand-icon">∑</span>
+        <span class="brand-text">Matemática <strong>40</strong></span>
+      </a>
+      <div class="user-area">
+        <div class="user-chip">
+          <span class="user-avatar" id="userAvatar">·</span>
+          <div class="user-info">
+            <span class="user-label" id="userLabel"></span>
+            <span class="user-name" id="userName"></span>
+          </div>
+        </div>
+        <a href="/conta.html" class="btn-ghost">Minha conta</a>
+        <button type="button" class="btn-logout" data-logout>Sair</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="conta-wrap">
+    <section class="auth-box">
+      <h1>Minha conta</h1>
+      <p id="who" class="muted"></p>
+      <div id="forced" class="alert error hidden">Defina uma nova senha antes de continuar.</div>
+      <div id="msg" class="alert hidden"></div>
+      <form id="pwForm" novalidate>
+        <div class="field">
+          <label for="current">Senha atual</label>
+          <input id="current" type="password" autocomplete="current-password" maxlength="128" required>
+        </div>
+        <div class="field">
+          <label for="new1">Nova senha</label>
+          <input id="new1" type="password" autocomplete="new-password" maxlength="128" required>
+          <small id="rule" class="muted"></small>
+        </div>
+        <div class="field">
+          <label for="new2">Repita a nova senha</label>
+          <input id="new2" type="password" autocomplete="new-password" maxlength="128" required>
+        </div>
+        <button class="btn btn-block" type="submit">Salvar nova senha</button>
+      </form>
+      <div class="row-between">
+        <a id="back" class="small" href="/">← Voltar ao painel</a>
+      </div>
+    </section>
+  </main>
+
+  <script src="/js/api.js"></script>
+<script src="/js/topbar.js"></script>
+<script src="/js/conta.js"></script> <!-- ou aluno.js / conta.js -->
+
+</body>
+</html>
